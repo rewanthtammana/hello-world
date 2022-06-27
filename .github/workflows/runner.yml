@@ -36,5 +36,6 @@ jobs:
       uses: docker/build-push-action@v3.0.0
       with:
         build-contexts: .
-        push: testinguser883/hello-world
+        push: true
+        tags: testinguser883/hello-world:latest
 
