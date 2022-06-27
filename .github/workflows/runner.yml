@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+    - name: Generate package.lock json
+      run: npm i --package-lock-only
     - name: Find vulnerable packages
       run: npm audit
 
