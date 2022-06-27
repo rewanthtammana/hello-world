@@ -22,3 +22,18 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+    
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Docker Login
+      uses: docker/login-action@v2.0.0
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v3.0.0
+      with:
+        build-contexts: .
+        push: testinguser883/hello-world
