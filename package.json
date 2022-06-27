@@ -17,4 +17,7 @@
     "url": "https://github.com/rewanthtammana/hello-world/issues"
   },
   "homepage": "https://github.com/rewanthtammana/hello-world#readme",
+  "dependencies": {
+    "express": "3.0"
+  }
 }
