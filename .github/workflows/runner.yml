@@ -39,15 +39,15 @@ jobs:
     - run: npm install
     
   publish:
-    uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@secretsbranch
+    uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@main
+    needs: build
+    secrets: inherit
     with:
-      image_name: testinguser883/central-hello-world
+      image_name: testinguser883/central-hello-world-inherit
       tag: try
 #     secrets:
 #       registry_username: ${{secrets.DOCKER_USERNAME}}
 #       registry_password: ${{secrets.DOCKER_PASSWORD}}
-    needs: build
-    secrets: inherit
 
 #     runs-on: ubuntu-latest
 #     needs: build
