@@ -41,13 +41,12 @@ jobs:
   publish:
     uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@main
     needs: build
-    secrets: inherit
     with:
-      image_name: testinguser883/central-hello-world-inherit
-      tag: try
-#     secrets:
-#       registry_username: ${{secrets.DOCKER_USERNAME}}
-#       registry_password: ${{secrets.DOCKER_PASSWORD}}
+      image_name: testinguser883/central-hello-world
+      tag: mil1
+    secrets:
+      registry_username: ${{secrets.DOCKER_USERNAME}}
+      registry_password: ${{secrets.DOCKER_PASSWORD}}
 
 #     runs-on: ubuntu-latest
 #     needs: build
