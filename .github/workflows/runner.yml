@@ -29,10 +29,13 @@ jobs:
   secret-scanning:
     uses: rewanthtammana/centralized-workflows/.github/workflows/gitleaks.yml@main
 
+  checkov-scanning:
+    uses: rewanthtammana/centralized-workflows/.github/workflows/checkov.yml@main
+
   build:
 
     runs-on: ubuntu-latest
-    needs: [image-scan, sca-checks, codeql]
+    needs: [image-scan, sca-checks, codeql, secret-scanning, checkov-scanning]
     strategy:
       matrix:
         node-version: [14.x]
