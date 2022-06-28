@@ -7,15 +7,17 @@ on:
     branches: [ "master" ]
 
 jobs:
+#   pre-build-checks:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v3
+#     - name: Generate package.lock json
+#       run: npm i --package-lock-only
+#     - name: Find vulnerable packages
+#       run: npm audit
   pre-build-checks:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Generate package.lock json
-      run: npm i --package-lock-only
-    - name: Find vulnerable packages
-      run: npm audit
+    uses: rewanthtammana/centralized-workflows/.github/workflows/nodejs.yml@main
 
   build:
 
