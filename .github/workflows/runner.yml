@@ -41,7 +41,7 @@ jobs:
   publish:
     uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@main
     with:
-      image_name: central-hello-world
+      image_name: testinguser883/central-hello-world
       tag: try
     secrets:
       registry_username: ${{secrets.DOCKER_USERNAME}}
