@@ -17,8 +17,12 @@ jobs:
 #       run: npm i --package-lock-only
 # #     - name: Find vulnerable packages
 # #       run: npm audit
+  test:
+    uses: rewanthtammana/centralized-workflows/.github/workflows/codeql-analysis.yml@main
+    
   sca-checks:
     uses: rewanthtammana/centralized-workflows/.github/workflows/nodejs.yml@main
+    needs: test
 
   image-scan:
     uses: rewanthtammana/centralized-workflows/.github/workflows/trivy.yml@main
