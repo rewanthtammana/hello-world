@@ -43,10 +43,11 @@ jobs:
     with:
       image_name: testinguser883/central-hello-world
       tag: try
-    secrets:
-      registry_username: ${{secrets.DOCKER_USERNAME}}
-      registry_password: ${{secrets.DOCKER_PASSWORD}}
+#     secrets:
+#       registry_username: ${{secrets.DOCKER_USERNAME}}
+#       registry_password: ${{secrets.DOCKER_PASSWORD}}
     needs: build
+    secrets: inherit
 
 #     runs-on: ubuntu-latest
 #     needs: build
