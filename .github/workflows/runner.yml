@@ -37,6 +37,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+  
+  scan:
+    uses: rewanthtammana/centralized-workflows/.github/workflows/trivy.yml@main
+    needs: build
     
   publish:
     uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@main
