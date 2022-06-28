@@ -39,7 +39,7 @@ jobs:
     - run: npm install
     
   publish:
-    uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@main
+    uses: rewanthtammana/centralized-workflows/.github/workflows/publish.yml@secretsbranch
     with:
       image_name: testinguser883/central-hello-world
       tag: try
