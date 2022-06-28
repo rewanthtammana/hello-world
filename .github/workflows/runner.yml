@@ -43,6 +43,9 @@ jobs:
     with:
       image_name: central-hello-world
       tag: try
+    secrets:
+      registry_username: ${{secrets.DOCKER_USERNAME}}
+      registry_password: ${{secrets.DOCKER_PASSWORD}}
     needs: build
 
 #     runs-on: ubuntu-latest
