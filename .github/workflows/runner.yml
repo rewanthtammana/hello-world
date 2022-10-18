@@ -35,6 +35,7 @@ jobs:
         AWS_SESSION_TOKEN: ${{ secrets.SESSIONTOKEN }}
       run: |
         kubectl --kubeconfig conf get nodes
-        kubectl --kubeconfig conf create deployment nginx --image nginx
-        kubectl --kubeconfig conf expose deployment nginx --port 80 --type LoadBalancer
-        kubectl --kubeconfig get svc -A
+        export RAND=$RANDOM
+        kubectl --kubeconfig conf create deployment nginx$RAND --image nginx
+        kubectl --kubeconfig conf expose deployment nginx$RAND --port 80 --type LoadBalancer
+        kubectl --kubeconfig conf get svc -A
