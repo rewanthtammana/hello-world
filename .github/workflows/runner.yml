@@ -22,5 +22,8 @@ jobs:
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
       run: |
+        echo hello
+        echo $KUBECONFIG
+        echo world
         echo $KUBECONFIG > /tmp/kubeconfig
         kubectl --kubeconfig /tmp/kubeconfig get nodes
