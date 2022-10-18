@@ -30,6 +30,9 @@ jobs:
     - name: Deploy to kubernetes
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        AWS_ACCESS_KEY: ${{ secrets.ACCESSKEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRETACCESSKEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.SESSIONTOKEN }}
       run: |
         which kubectl
         echo hello
