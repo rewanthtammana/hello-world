@@ -18,13 +18,19 @@ jobs:
         curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin
+
+    - name: Copy kubectl to a file
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      run: 'echo "$KUBECONFIG" > conf'
+        
     - name: Deploy to kubernetes
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
       run: |
         which kubectl
         echo hello
-        echo $KUBECONFIG
+        cat conf
         echo world
         echo $KUBECONFIG > /tmp/kubeconfig
         cat /tmp/kubeconfig
