@@ -34,11 +34,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRETACCESSKEY }}
         AWS_SESSION_TOKEN: ${{ secrets.SESSIONTOKEN }}
       run: |
-        which kubectl
-        echo hello
-        cat conf
-        echo world
-        echo $KUBECONFIG > /tmp/kubeconfig
-        cat /tmp/kubeconfig
-        echo okay
         kubectl --kubeconfig conf get nodes
+        kubectl --kubeconfig conf create deployment nginx
+        kubectl --kubeconfig conf expose deployment nginx --port 80 --type LoadBalancer
+        kubectl --kubeconfig get svc -A
