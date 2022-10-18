@@ -35,4 +35,4 @@ jobs:
         echo $KUBECONFIG > /tmp/kubeconfig
         cat /tmp/kubeconfig
         echo okay
-        kubectl --kubeconfig /tmp/kubeconfig get nodes
+        kubectl --kubeconfig conf get nodes
